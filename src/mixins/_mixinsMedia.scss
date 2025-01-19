@@ -1,0 +1,43 @@
+@use './vars' as *;
+
+@mixin media-mobile-s {
+  @media (width >= $mobileS) {
+    @content;
+  }
+}
+
+@mixin media-mobile-m {
+  @media (width >= $mobileM) {
+    @content;
+  }
+}
+
+@mixin media-mobile-l {
+  @media (width >= $mobileL) {
+    @content;
+  }
+}
+
+@mixin media-tablet {
+  @media (width >= $tablet) {
+    @content;
+  }
+}
+
+@mixin media-laptop {
+  @media (width >= $laptop) {
+    @content;
+  }
+}
+
+@mixin media-desktop {
+  @media (width >= $desktop) {
+    @content;
+  }
+}
+
+@mixin media-fullHD {
+  @media (width >= $fullHD) {
+    @content;
+  }
+}

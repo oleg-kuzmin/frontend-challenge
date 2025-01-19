@@ -1,0 +1,26 @@
+@use './vars' as *;
+
+@mixin effect-hover-text {
+  @media screen and (hover: hover) {
+    transition: color $timeHover;
+    &:hover {
+      color: $linkHoverText;
+    }
+  }
+}
+
+@mixin effect-hover-button {
+  @media screen and (hover: hover) {
+    transition: background-color $timeHover;
+    &:hover {
+      background-color: $linkHoverBg;
+    }
+  }
+}
+
+@mixin effect-focus-primary {
+  &:focus-visible {
+    border-radius: 2px;
+    outline: $mainAccent 2px solid;
+  }
+}

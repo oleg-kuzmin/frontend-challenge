@@ -1,0 +1,118 @@
+@use 'mixins' as *;
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+.CatCard {
+  position: relative;
+  width: 225px;
+  height: 225px;
+  overflow: hidden;
+  border-radius: 5px;
+  transition:
+    scale $timeHover,
+    box-shadow $timeHover;
+  &:not(.CatCard_Loading):hover {
+    scale: 1.14;
+    box-shadow:
+      0 9px 18px 0 rgba(0, 0, 0, 0.18),
+      0 6px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  &:not(.CatCard_Loading):hover &__Bg {
+    opacity: 1;
+  }
+
+  &_Loading {
+    background: #eee linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+  }
+
+  &__Image {
+    visibility: visible;
+    width: 225px;
+    height: 225px;
+    object-fit: cover;
+    transform: scaleZ(1);
+    opacity: 1;
+    transition:
+      filter $timeAnimationCard,
+      opacity $timeAnimationCard,
+      visibility $timeAnimationCard,
+      scale $timeHover,
+      box-shadow $timeHover;
+    &_Loading {
+      visibility: hidden;
+      filter: blur(5px);
+      opacity: 0;
+    }
+  }
+
+  &__Bg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 94px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 58.85%);
+    opacity: 0;
+    transition: opacity $timeHover;
+  }
+
+  &:hover &__LikeButton {
+    opacity: 1;
+  }
+
+  &__LikeButton {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    width: 35px;
+    height: 32px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity $timeHover;
+
+    // Before
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/svg/like-icon.svg') no-repeat center / cover;
+      content: '';
+      opacity: 1;
+      transition: opacity $timeHover;
+    }
+    &_Active::before {
+      opacity: 0;
+    }
+
+    // After
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/svg/like-icon-hover.svg') no-repeat center / cover;
+      content: '';
+      opacity: 0;
+      transition: opacity $timeHover;
+    }
+    &_Active::after {
+      opacity: 1;
+    }
+
+    &:not(.CatCard__LikeButton_Active):hover::after {
+      opacity: 1;
+    }
+    &:active::after {
+      background-image: url('/svg/like-icon-active.svg');
+      opacity: 1;
+    }
+  }
+}

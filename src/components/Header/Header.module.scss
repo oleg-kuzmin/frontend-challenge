@@ -1,0 +1,17 @@
+@use 'mixins' as *;
+
+.Header {
+  z-index: 1;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 64px;
+  background-color: $mainBg;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24);
+
+  &__Filters {
+    display: flex;
+    height: 100%;
+    @include content;
+  }
+}

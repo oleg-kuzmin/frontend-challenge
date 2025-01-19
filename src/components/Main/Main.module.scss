@@ -1,0 +1,6 @@
+@use 'mixins' as *;
+
+.Main {
+  padding-bottom: 100px;
+  @include content;
+}

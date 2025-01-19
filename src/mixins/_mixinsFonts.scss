@@ -1,0 +1,7 @@
+@mixin font($_fontWeight, $_fontSize, $_lineHeight: 1, $_letterSpacing: normal, $_fontStyle: normal) {
+  font-style: $_fontStyle;
+  font-weight: $_fontWeight;
+  font-size: $_fontSize;
+  line-height: $_lineHeight;
+  letter-spacing: $_letterSpacing;
+}

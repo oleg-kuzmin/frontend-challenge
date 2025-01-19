@@ -1,0 +1,17 @@
+@use 'mixins' as *;
+
+.CatList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 225px);
+  justify-content: center;
+  padding-top: 36px;
+  gap: 16px;
+
+  @include media-tablet {
+    gap: 48px;
+  }
+
+  @include media-desktop {
+    justify-items: start;
+  }
+}

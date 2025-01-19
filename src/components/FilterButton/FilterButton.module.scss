@@ -1,0 +1,18 @@
+@use 'mixins' as *;
+
+.FilterButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 23px;
+  color: rgba($color: #fff, $alpha: 0.7);
+  cursor: pointer;
+  @include font(400, 14px, 1.5, 0.02em);
+  @include effect-hover-text;
+  @include effect-focus-primary;
+  &_Active {
+    background-color: $linkHoverBg;
+    color: $linkHoverText;
+  }
+}
